@@ -20,8 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.white,
-          title: Text('Material App Bar $currentPage',
-              style: TextStyle(color: Colors.black)),
+          title: Text('My first app', style: TextStyle(color: Colors.black)),
           elevation: 1),
       body: PageView(
         physics: NeverScrollableScrollPhysics(),
@@ -59,6 +58,42 @@ class CustomScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: color, child: Center(child: Text('Hello World, working')));
+      color: color,
+      child: Column(children: <Widget>[
+        Padding(
+            padding: EdgeInsets.fromLTRB(50, 80, 20, 50),
+            child: Text(
+              'Hello World, working',
+              style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
+            )),
+        Container(
+            margin: EdgeInsets.only(top: 40),
+            height: 300,
+            color: Color.fromARGB(255, 158, 158, 158),
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: Row(
+                children: const <Widget>[
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(10, 50, 5, 50),
+                    child: Text('1'),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(10, 50, 5, 50),
+                    child: Text('2'),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(10, 50, 5, 50),
+                    child: Text('3'),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(10, 50, 5, 50),
+                    child: Text('4'),
+                  )
+                ],
+              ),
+            ))
+      ]),
+    );
   }
 }
