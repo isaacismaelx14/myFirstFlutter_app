@@ -26,7 +26,9 @@ class _HomeScreenState extends State<HomeScreen> {
         physics: NeverScrollableScrollPhysics(),
         controller: pageController,
         children: const [
-          CustomScreen(color: Colors.white),
+          SingleChildScrollView(
+            child: CustomScreen(color: Colors.white),
+          ),
           AccountScreen(),
           SettingsScreen()
         ],
@@ -60,38 +62,67 @@ class CustomScreen extends StatelessWidget {
     return Container(
       color: color,
       child: Column(children: <Widget>[
-        Padding(
-            padding: EdgeInsets.fromLTRB(50, 80, 20, 50),
-            child: Text(
-              'Hello World, working',
-              style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
-            )),
+        Container(
+          color: Color.fromARGB(255, 46, 46, 46),
+          child: Align(
+              alignment: Alignment.center,
+              child: Padding(
+                  padding: EdgeInsets.fromLTRB(30, 80, 20, 80),
+                  child: Text(
+                    'Hello World, working',
+                    style: TextStyle(
+                        fontSize: 30.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ))),
+        ),
         Container(
             margin: EdgeInsets.only(top: 40),
-            height: 300,
-            color: Color.fromARGB(255, 158, 158, 158),
             child: Align(
-              alignment: Alignment.topCenter,
-              child: Row(
-                children: const <Widget>[
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(10, 50, 5, 50),
-                    child: Text('1'),
+                alignment: Alignment.topCenter,
+                child: Padding(
+                  padding: EdgeInsets.only(top: 50),
+                  child: Row(
+                    children: const <Widget>[
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(80, 0, 5, 0),
+                        child: Text('1'),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(40, 0, 5, 0),
+                        child: Text('2'),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(40, 0, 5, 0),
+                        child: Text('3'),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(40, 0, 5, 0),
+                        child: Text('4'),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(40, 0, 5, 0),
+                        child: Text('5'),
+                      )
+                    ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(10, 50, 5, 50),
-                    child: Text('2'),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(10, 50, 5, 50),
-                    child: Text('3'),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(10, 50, 5, 50),
-                    child: Text('4'),
-                  )
-                ],
-              ),
+                ))),
+        Container(
+            padding: EdgeInsets.all(30),
+            margin: EdgeInsets.only(top: 120),
+            child: Text(
+              'Lorem ipsum',
+              style: TextStyle(fontSize: 40),
+            )),
+        Container(
+            margin: EdgeInsets.only(top: 10),
+            child: Image(
+              image: AssetImage('assets/image.jpg'),
+            )),
+        Container(
+            margin: EdgeInsets.only(top: 10, bottom: 50),
+            child: Image(
+              image: AssetImage('assets/image-2.jpg'),
             ))
       ]),
     );
