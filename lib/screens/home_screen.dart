@@ -3,6 +3,7 @@
 import "package:flutter/material.dart";
 import 'package:my_app/screens/account_screen.dart';
 import 'package:my_app/screens/settings_screen.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -107,6 +108,16 @@ class CustomScreen extends StatelessWidget {
                     ],
                   ),
                 ))),
+        Container(
+          margin: EdgeInsets.only(top: 30),
+          child: FlatButton(
+              onPressed: () {
+                final player = AudioCache();
+                player.play('timbre.mp3');
+              },
+              color: Colors.red,
+              child: Text('Timbre', style: TextStyle(color: Colors.white))),
+        ),
         Container(
             padding: EdgeInsets.all(30),
             margin: EdgeInsets.only(top: 120),
