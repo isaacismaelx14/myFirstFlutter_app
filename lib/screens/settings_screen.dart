@@ -5,7 +5,13 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.white, child: const Center(child: Text('Settings')));
+    return Column(
+      children: [
+        Container(
+            margin: EdgeInsets.only(top: 30),
+            color: Colors.white,
+            child: Text('Settings'))
+      ],
+    );
   }
 }

@@ -82,32 +82,20 @@ class CustomScreen extends StatelessWidget {
             child: Align(
                 alignment: Alignment.topCenter,
                 child: Padding(
-                  padding: EdgeInsets.only(top: 50),
-                  child: Row(
-                    children: const <Widget>[
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(80, 0, 5, 0),
-                        child: Text('1'),
+                    padding: EdgeInsets.only(top: 50),
+                    child: Container(
+                      padding: EdgeInsets.only(left: 40, right: 40),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: const <Widget>[
+                          Text('1'),
+                          Text('2'),
+                          Text('3'),
+                          Text('4'),
+                          Text('5'),
+                        ],
                       ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(40, 0, 5, 0),
-                        child: Text('2'),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(40, 0, 5, 0),
-                        child: Text('3'),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(40, 0, 5, 0),
-                        child: Text('4'),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(40, 0, 5, 0),
-                        child: Text('5'),
-                      )
-                    ],
-                  ),
-                ))),
+                    )))),
         Container(
           margin: EdgeInsets.only(top: 30),
           child: FlatButton(
