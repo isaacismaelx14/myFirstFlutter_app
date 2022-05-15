@@ -1,8 +1,6 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
 
 import "package:flutter/material.dart";
-import 'package:my_app/screens/account_screen.dart';
-import 'package:my_app/screens/settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,20 +16,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: Text('Material App Bar $currentPage',
-              style: TextStyle(color: Colors.black)),
-          elevation: 1),
-      body: PageView(
-        physics: NeverScrollableScrollPhysics(),
-        controller: pageController,
-        children: const [
-          CustomScreen(color: Colors.white),
-          AccountScreen(),
-          SettingsScreen()
-        ],
-      ),
+      appBar:
+          AppBar(title: Text('Material App Bar $currentPage'), elevation: 0),
+      body: Text('test'),
+      // body: PageView(
+      //   physics: NeverScrollableScrollPhysics(),
+      //   controller: pageController,
+      //   children: Text,
+      // ),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: currentPage,
           onTap: (index) {
@@ -40,6 +32,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 duration: Duration(milliseconds: 300), curve: Curves.easeOut);
             setState(() {});
           },
+          backgroundColor: Colors.blue,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white.withOpacity(0.5),
           elevation: 0,
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
@@ -48,17 +43,5 @@ class _HomeScreenState extends State<HomeScreen> {
                 icon: Icon(Icons.settings), label: 'Settings')
           ]),
     );
-  }
-}
-
-class CustomScreen extends StatelessWidget {
-  final Color color;
-
-  const CustomScreen({required this.color});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        color: color, child: Center(child: Text('Hello World, working')));
   }
 }
