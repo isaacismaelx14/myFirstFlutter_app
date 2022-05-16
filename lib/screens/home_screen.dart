@@ -69,11 +69,13 @@ class CustomScreen extends StatelessWidget {
         Section3(),
         Section4(),
         ImageRender(
+          marginBottom: 20,
           fileName: "image.jpg",
-          margin: EdgeInsets.only(bottom: 20),
         ),
-        ImageRender(
-            fileName: "image-2.jpg", margin: EdgeInsets.only(bottom: 80))
+        ImageRender(fileName: "image-3.jpg", marginBottom: 20),
+        ImageRender(fileName: "image-4.jpg", marginBottom: 20),
+        ImageRender(fileName: "image-5.jpg", marginBottom: 20),
+        ImageRender(fileName: "image-6.jpg", marginBottom: 80)
       ]),
     ));
   }
@@ -87,7 +89,7 @@ class Section1 extends StatelessWidget {
     return Container(
       color: primaryColor,
       width: (MediaQuery.of(context).size.width),
-      height: 250,
+      height: 350,
       alignment: Alignment.center,
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -96,9 +98,10 @@ class Section1 extends StatelessWidget {
             Text(
               'Hello World',
               style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 223, 223, 223)),
+                fontSize: 35.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             ),
             Text(
               'With Flutter',
@@ -171,14 +174,15 @@ class Section4 extends StatelessWidget {
 
 class ImageRender extends StatelessWidget {
   final String fileName;
-  final EdgeInsets? margin;
-  const ImageRender({Key? key, required this.fileName, this.margin})
+  final double marginBottom;
+  const ImageRender(
+      {Key? key, required this.fileName, required this.marginBottom})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: margin,
+        margin: EdgeInsets.only(bottom: marginBottom),
         child: Image(
           image: AssetImage('assets/$fileName'),
         ));
