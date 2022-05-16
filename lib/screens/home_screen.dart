@@ -76,21 +76,24 @@ class CustomScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-        child: Container(
-      color: color,
-      child: Column(children: const <Widget>[
-        Section1(),
-        Section2(),
-        Section3(),
-        Section4(),
-        ImageRender(marginBottom: 20, fileName: "image.jpg"),
-        ImageRender(fileName: "image-2.jpg", marginBottom: 20),
-        ImageRender(fileName: "image-3.jpg", marginBottom: 20),
-        ImageRender(fileName: "image-4.jpg", marginBottom: 20),
-        ImageRender(fileName: "image-5.jpg", marginBottom: 20),
-        ImageRender(fileName: "image-6.jpg", marginBottom: 80),
-      ]),
-    ));
+      child: Container(
+        color: color,
+        child: Column(
+          children: const <Widget>[
+            Section1(),
+            Section2(),
+            Section3(),
+            Section4(),
+            ImageRender(marginBottom: 20, fileName: "image.jpg"),
+            ImageRender(fileName: "image-2.jpg", marginBottom: 20),
+            ImageRender(fileName: "image-3.jpg", marginBottom: 20),
+            ImageRender(fileName: "image-4.jpg", marginBottom: 20),
+            ImageRender(fileName: "image-5.jpg", marginBottom: 20),
+            ImageRender(fileName: "image-6.jpg", marginBottom: 80),
+          ],
+        ),
+      ),
+    );
   }
 }
 
