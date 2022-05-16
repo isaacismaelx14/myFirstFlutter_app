@@ -12,7 +12,12 @@ class AccountScreen extends StatefulWidget {
 class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
-    return Column(children: const [TopAccount(), Configurations()]);
+    return Column(
+      children: const [
+        TopAccount(),
+        Configurations(),
+      ],
+    );
   }
 }
 
@@ -22,8 +27,13 @@ class TopAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 10),
-      padding: const EdgeInsets.only(left: 20, right: 20),
+      margin: const EdgeInsets.only(
+        top: 10,
+      ),
+      padding: const EdgeInsets.only(
+        left: 20,
+        right: 20,
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -33,11 +43,13 @@ class TopAccount extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 16,
                     color: Colors.red,
-                    fontWeight: FontWeight.bold)),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             onPressed: () {
               print('Log out');
             },
-          )
+          ),
         ],
       ),
     );
@@ -55,13 +67,18 @@ class UserInformation extends StatelessWidget {
           child: SizedBox.fromSize(
             size: const Size.fromRadius(25), // Image radius
             child: const Image(
-                image: AssetImage('assets/avatar.png'), fit: BoxFit.cover),
+              image: AssetImage('assets/avatar.png'),
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         Container(
           margin: const EdgeInsets.only(left: 20),
-          child: Text(username, style: const TextStyle(fontSize: 18)),
-        )
+          child: Text(
+            username,
+            style: const TextStyle(fontSize: 18),
+          ),
+        ),
       ],
     );
   }
@@ -76,10 +93,18 @@ class Configurations extends StatelessWidget {
       margin: const EdgeInsets.only(top: 20),
       child: Column(
         children: const [
-          ButtonsConfig(text: "Friends"),
-          ButtonsConfig(text: "Followers"),
-          ButtonsConfig(text: "Following"),
-          ButtonsConfig(text: "Account settings"),
+          ButtonsConfig(
+            text: "Friends",
+          ),
+          ButtonsConfig(
+            text: "Followers",
+          ),
+          ButtonsConfig(
+            text: "Following",
+          ),
+          ButtonsConfig(
+            text: "Account settings",
+          ),
         ],
       ),
     );
@@ -97,11 +122,16 @@ class ButtonsConfig extends StatelessWidget {
         margin: const EdgeInsets.only(top: 5),
         child: Column(children: [
           TextButton(
-            child: Text(text, style: const TextStyle(fontSize: 20)),
+            child: Text(
+              text,
+              style: const TextStyle(fontSize: 20),
+            ),
             onPressed: () {
               print(text);
             },
           )
-        ]));
+        ],
+      ),
+    );
   }
 }

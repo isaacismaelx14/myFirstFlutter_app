@@ -8,9 +8,10 @@ class SettingsScreen extends StatelessWidget {
     return Column(
       children: [
         Container(
-            margin: EdgeInsets.only(top: 30),
-            color: Colors.white,
-            child: Text('Settings'))
+          margin: const EdgeInsets.only(top: 30),
+          color: Colors.white,
+          child: const Text('Settings'),
+        )
       ],
     );
   }
