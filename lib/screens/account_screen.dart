@@ -87,7 +87,6 @@ class Configurations extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              padding: const EdgeInsets.only(left: 20, right: 20),
               decoration: const BoxDecoration(
                 border: Border(
                   top: BorderSide(
@@ -99,6 +98,11 @@ class Configurations extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: const [
+                  ButtonsConfig(
+                    text: "Friends",
+                    fullWidth: false,
+                    hideTopBar: true,
+                  ),
                   ButtonsConfig(
                     text: "Followers",
                     fullWidth: false,
@@ -164,7 +168,9 @@ class ButtonsConfig extends StatelessWidget {
         children: [
           TextButton(
             style: fullWidth == false
-                ? null
+                ? TextButton.styleFrom(
+                    minimumSize:
+                        Size((MediaQuery.of(context).size.width) / 3, 60))
                 : TextButton.styleFrom(
                     minimumSize: Size(
                       (MediaQuery.of(context).size.width),
@@ -176,6 +182,7 @@ class ButtonsConfig extends StatelessWidget {
               style: TextStyle(
                 fontSize: 18,
                 color: textColor ?? primaryColor,
+                decorationColor: textColor ?? primaryColor,
               ),
             ),
             onPressed: () {
