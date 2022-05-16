@@ -72,6 +72,7 @@ class CustomScreen extends StatelessWidget {
           marginBottom: 20,
           fileName: "image.jpg",
         ),
+        ImageRender(fileName: "image-2.jpg", marginBottom: 20),
         ImageRender(fileName: "image-3.jpg", marginBottom: 20),
         ImageRender(fileName: "image-4.jpg", marginBottom: 20),
         ImageRender(fileName: "image-5.jpg", marginBottom: 20),
