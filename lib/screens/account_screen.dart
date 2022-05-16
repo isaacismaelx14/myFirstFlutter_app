@@ -15,10 +15,10 @@ class _AccountScreenState extends State<AccountScreen> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-      children: const [
-        TopAccount(),
-        Configurations(),
-      ],
+        children: const [
+          TopAccount(),
+          Configurations(),
+        ],
       ),
     );
   }
@@ -71,8 +71,7 @@ class UserInformation extends StatelessWidget {
               ),
             ),
           ],
-        )
-    );
+        ));
   }
 }
 
@@ -83,29 +82,46 @@ class Configurations extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 20),
-      child: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.only(top: 40),
-            child: const ButtonsConfig(
-              text: "Friends",
+      child: Container(
+        margin: const EdgeInsets.only(top: 20),
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              decoration: const BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color: Color.fromARGB(20, 0, 0, 0),
+                    width: 1.0,
+                  ),
+                ),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: const [
+                  ButtonsConfig(
+                    text: "Followers",
+                    fullWidth: false,
+                    hideTopBar: true,
+                  ),
+                  ButtonsConfig(
+                    text: "Following",
+                    fullWidth: false,
+                    hideTopBar: true,
+                  ),
+                ],
+              ),
             ),
-          ),
-          const ButtonsConfig(
-            text: "Followers",
-          ),
-          const ButtonsConfig(
-            text: "Following",
-          ),
-          const ButtonsConfig(
-            text: "Account settings",
-          ),
-          const ButtonsConfig(
-            text: "Log out",
-            last: true,
-            textColor: Colors.red,
-          ),
-        ],
+            const ButtonsConfig(
+              text: "Account settings",
+            ),
+            const ButtonsConfig(
+              text: "Log out",
+              last: true,
+              textColor: Colors.red,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -115,17 +131,26 @@ class ButtonsConfig extends StatelessWidget {
   final String text;
   final bool? last;
   final Color? textColor;
+  final bool? fullWidth;
+  final bool? hideTopBar;
 
-  const ButtonsConfig({Key? key, required this.text, this.last, this.textColor})
-      : super(key: key);
+  const ButtonsConfig({
+    Key? key,
+    required this.text,
+    this.last,
+    this.textColor,
+    this.fullWidth,
+    this.hideTopBar,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         border: Border(
-          top: const BorderSide(
-            color: Color.fromARGB(20, 0, 0, 0),
+          top: BorderSide(
+            color: const Color.fromARGB(20, 0, 0, 0),
+            style: hideTopBar == true ? BorderStyle.none : BorderStyle.solid,
             width: 1.0,
           ),
           bottom: BorderSide(
@@ -138,8 +163,14 @@ class ButtonsConfig extends StatelessWidget {
       child: Column(
         children: [
           TextButton(
-            style: TextButton.styleFrom(
-                minimumSize: Size((MediaQuery.of(context).size.width), 60)),
+            style: fullWidth == false
+                ? null
+                : TextButton.styleFrom(
+                    minimumSize: Size(
+                      (MediaQuery.of(context).size.width),
+                      60,
+                    ),
+                  ),
             child: Text(
               text,
               style: TextStyle(
